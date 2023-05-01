@@ -12,13 +12,17 @@ module gru_lstm_tb;
 	wire [7:0] h_out;
 
 	// Instantiate the Unit Under Test (UUT)
-	gru_lstm uut (
+	gru_lstm_cell uut (
 		.h_in(h_in), 
 		.X(X), 
 		.h_out(h_out)
 	);
 
 	initial begin
+	    //$display("Loading rom.");
+        //$readmemh("rom_image.mem", test_memory);
+        //if (file)  $display("File was opened successfully : %0d", file);
+        //else       $display("File was NOT opened successfully : %0d", file);
 		// Initialize Inputs
 //		c_in = 0;
 		h_in = 0;
@@ -30,7 +34,7 @@ module gru_lstm_tb;
 		// First 8 bits are integeral part and last 8 bits are fractional
 		// All Numbers are signed 
 		
-                #200;
+        #200;
 		X=-8'h80;       
 //		c_in=-16'h0100;    // c_in = -1
 		h_in=8'h80;     

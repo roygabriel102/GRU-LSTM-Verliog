@@ -9,7 +9,7 @@ module MultAdd(X, W0, b, out);
 	output signed [DATA_WIDTH-1:0] out;
 
 	// internal regs/wires
-	wire signed [DATA_WIDTH+DATA_WIDTH-1:0] p1;
+	wire signed [DATA_WIDTH-1:0] p1;
 	wire cout;
 	
 	// behavior: out = W*{x,h_in} + b where W={W0,W1}

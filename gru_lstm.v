@@ -47,7 +47,7 @@ module gru_lstm_cell(h_in, X, h_out);
 	ConcatMultAdd #(DATA_WIDTH, FRACT_WIDTH) C1 (X, h_in, Wz, Uz, bz, zt);
 	ConcatMultAdd #(DATA_WIDTH, FRACT_WIDTH) C2 (X, h_in, Wr, Ur, br, rt);
 
-	MultAdd m1(Rt, h_in, bh, ht0);
+	MultAdd #(DATA_WIDTH, FRACT_WIDTH) m1(Rt, h_in, bh, ht0);
 	ConcatMultAdd #(DATA_WIDTH, FRACT_WIDTH) C3 (X, ht0, Wh, Uh, 0, ht);
 	
 	sigmoid_lut #(.AW(AW), .DW(DW), .N(DATA_WIDTH), .Q(FRACT_WIDTH)) s1(zt,Zt);
