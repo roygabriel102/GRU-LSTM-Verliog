@@ -19,10 +19,6 @@ module gru_lstm_tb;
 	);
 
 	initial begin
-	    //$display("Loading rom.");
-        //$readmemh("rom_image.mem", test_memory);
-        //if (file)  $display("File was opened successfully : %0d", file);
-        //else       $display("File was NOT opened successfully : %0d", file);
 		// Initialize Inputs
 //		c_in = 0;
 		h_in = 0;
