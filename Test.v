@@ -1,3 +1,4 @@
+//DO NOT USE
 //This file has not been adjusted for the GRU LSTM
 `timescale 1ns / 1ps
 
