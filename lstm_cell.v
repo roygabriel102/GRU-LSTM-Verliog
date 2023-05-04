@@ -1,3 +1,5 @@
+//DO NOT USE
+
 module lstm_cell(c_in, h_in, X, c_out, h_out);
 	
 	// X, c_in and h_in are assumed to be of 1x1. Change dimensions accordingly.
