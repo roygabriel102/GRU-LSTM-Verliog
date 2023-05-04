@@ -20,7 +20,7 @@ module gru_lstm_cell(h_in, X, h_out);
 	wire signed [DATA_WIDTH-1:0] Wz, Wr, Wh, Uz, Ur, Uh;
 	
 	//Bias arrays : {bz, bu, bh} where each element will be of size 1 x 1
-	wire signed [DATA_WIDTH-1:0] bz, bu, bh;
+	wire signed [DATA_WIDTH-1:0] bz, br, bh;
 
     //Assign weights and biases
 	//Random values assigned

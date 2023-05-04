@@ -9,7 +9,7 @@ import numpy as np
 
 datawidth = 8       #total width of data
 decimalwidth = 5    #number of decimal bits
-sigortanh = 0       #0 for tanh, 1 for sigmoid
+sigortanh = 1       #0 for tanh, 1 for sigmoid
 
 if sigortanh:
     writefile = 'sig_data.mem'
@@ -23,7 +23,7 @@ f = open(writefile,"w")
 def sig(x):
     return 1/(1 + np.exp(-x))
 
-for i in range(0,(2 ** datawidth)-1):
+for i in range(0,(2 ** datawidth)):
     a = bin(i)[2:].zfill(datawidth)
     a = a[:(datawidth-decimalwidth)] + '.' + a[(datawidth - decimalwidth):]
 
@@ -43,6 +43,8 @@ for i in range(0,(2 ** datawidth)-1):
     binary_rep = bin(fixed_num)[2:].zfill(datawidth)
 
     f.write(binary_rep + '\n')
+
+    print("out: "+binary_rep)
 
 f.close()
 
