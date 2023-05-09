@@ -17,8 +17,8 @@ module ConcatMultAdd#(DATA_WIDTH = 8, FRACT_WIDTH = 5)(X, h_in, W0, W1, b, out);
 	qmult #(DATA_WIDTH, FRACT_WIDTH) m1 (X,W0, p1, );
 	qmult #(DATA_WIDTH, FRACT_WIDTH) m2 (h_in, W1, p2, );
 
-	carry_look_ahead_8bit a1 (p1, p2, 1'b0, temp, cout);	//is not n bit configurable (to fix)
-	carry_look_ahead_8bit a2 (temp, b, cout, out1, cout2);	//is not n bit configurable (to fix)
+	nbit_carrylookahead #(.WIDTH(DATA_WIDTH)) a1 (p1, p2, 1'b0, temp, cout);	
+	nbit_carrylookahead #(.WIDTH(DATA_WIDTH)) a2 (temp, b, cout, out1, cout2);	
 
 	assign out = out1;
 /*

@@ -15,7 +15,7 @@ module MultAdd(X, W0, b, out);
 	// behavior: out = W*{x,h_in} + b where W={W0,W1}
 	qmult #(DATA_WIDTH, FRACT_WIDTH) m1 (X,W0, p1, );
 
-	carry_look_ahead_8bit a1 (p1, b, 1'b0, out1, cout);	//is not n bit configurable (to fix)
+	nbit_carrylookahead #(.WIDTH(DATA_WIDTH)) a1 (p1, b, 1'b0, out1, cout);	
 
 	assign out = out1;
 

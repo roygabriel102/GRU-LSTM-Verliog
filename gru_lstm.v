@@ -56,7 +56,7 @@ module gru_lstm_cell(h_in, X, h_out);
 	tanh_lut #(.AW(AW), .DW(DW), .N(DATA_WIDTH), .Q(FRACT_WIDTH)) t1(ht,Ht);
 
 	wire cout1;
-	carry_look_ahead_8bit a1(-1, Zt, 0, hto0, cout1); //is not n bit configurable (to fix)
+	nbit_carrylookahead #(.WIDTH(DATA_WIDTH)) a1(-1, Zt, 1'b0, hto0, cout1); 
 
 	ConcatMultAdd #(DATA_WIDTH, FRACT_WIDTH) C4 (hto0, Zt, h_in, Ht, 0, hto);
 

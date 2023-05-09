@@ -1,7 +1,8 @@
 `timescale 1ns / 1ps 
-module nbit_carrylookahead(A,B,Sum,Cout);
+module nbit_carrylookahead(A,B,Cin,Sum,Cout);
   parameter WIDTH = 11;
   input [WIDTH-1:0] A,B;
+  input Cin;
   output [WIDTH-1:0] Sum;
   output Cout;
   
@@ -37,7 +38,7 @@ module nbit_carrylookahead(A,B,Sum,Cout);
       end
   endgenerate
    
-  assign w_C[0] = 1'b0; // no carry input on first adder
+  assign w_C[0] = Cin; // (Added a carry input)no carry input on first adder
  
   assign Sum = w_SUM;   // Verilog Concatenation
   assign Cout = w_C[WIDTH];
