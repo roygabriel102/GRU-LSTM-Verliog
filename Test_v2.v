@@ -14,7 +14,7 @@ module gru_lstm_tb;
 
 
 	// Outputs
-	wire signed [7:0] h_out;
+	wire signed [DATA_WIDTH-1:0] h_out;
 
 	// Instantiate the Unit Under Test (UUT)
 gru_lstm_cell uut (
