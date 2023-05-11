@@ -1,4 +1,4 @@
-module gru_lstm_cell(h_in, X, h_out);
+module gru_lstm_cell(h_in, X, h_out, Wz, Wr, Wh, Uz, Ur, Uh, bz, br, bh);
 	
 	// X, c_in and h_in are assumed to be of 1x1. Change dimensions accordingly.
 	
@@ -16,26 +16,24 @@ module gru_lstm_cell(h_in, X, h_out);
     //X: current input
 	input signed [DATA_WIDTH-1:0] X;
 	
+	input signed [DATA_WIDTH-1:0] Wz;
+	input signed [DATA_WIDTH-1:0] Wr;
+	input signed [DATA_WIDTH-1:0] Wh;
+
+	input signed [DATA_WIDTH-1:0] Uz;
+	input signed [DATA_WIDTH-1:0] Ur;
+	input signed [DATA_WIDTH-1:0] Uh;
+	
+	input signed [DATA_WIDTH-1:0] bz;
+    input signed [DATA_WIDTH-1:0] br;
+	input signed [DATA_WIDTH-1:0] bh;
+	
 	//Weight arrays : {Wz, Wr, Wh, Uz, Ur, Uh} where each element will be of size 1 x 1
 	wire signed [DATA_WIDTH-1:0] Wz, Wr, Wh, Uz, Ur, Uh;
 	
 	//Bias arrays : {bz, bu, bh} where each element will be of size 1 x 1
 	wire signed [DATA_WIDTH-1:0] bz, br, bh;
 
-    //Assign weights and biases
-	//Random values assigned
-	
-	assign Wz=16'h0101;
-	assign Wr=-16'h0101;
-	assign Wh=16'h0101;
-
-	assign Uz=16'h0101;
-	assign Ur=-16'h0101;
-	assign Uh=16'h0101;
-	
-	assign bz=16'h0101;
-    assign br=-16'h0111;
-	assign bh=16'h0101;
 
     //h_out : tanh(o_out)
 	output wire signed [DATA_WIDTH-1:0] h_out;

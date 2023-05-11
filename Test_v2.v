@@ -14,7 +14,7 @@ module gru_lstm_tb;
 
 
 	// Outputs
-	wire [7:0] h_out;
+	wire signed [7:0] h_out;
 
 	// Instantiate the Unit Under Test (UUT)
 gru_lstm_cell uut (
@@ -57,7 +57,8 @@ h_in=$random;
 
 
 $monitor("Output (After Activation):%d ",h_out);
-$fwriteb(file_out,h_out,"\n");
+$fdisplay(file_out, h_out*(2.0**-FRACT_WIDTH));
+//$fwriteb(file_out,h_out,"\n");
 
 end
 
